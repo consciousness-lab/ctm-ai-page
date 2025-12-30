@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenTinker: Democratizing Agentic Reinforcement Learning as a Service</title>
+  <title>ctm-ai</title>
   
-  <meta name="description" content="OpenTinker: An open-source platform for democratizing Agentic Reinforcement Learning as a Service, featuring separation of programming and execution, and seamless transition from training to inference.">
-  <meta name="keywords" content="Reinforcement Learning, RLHF, Agentic AI, OpenTinker, Machine Learning, Distributed Systems">
+  <meta name="description" content="ctm-ai">
+  <meta name="keywords" content="ctm-ai">
   <meta name="author" content="Siqi Zhu, Jiaxuan You">
   
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -50,7 +50,7 @@
           <span class="icon">
             <i class="fas fa-home"></i>
           </span>
-          <span>OpenTinker</span>
+          <span>ctm-ai</span>
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -70,12 +70,6 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-dark Is-small" href="https://github.com/open-tinker/OpenTinker" target="_blank">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>GitHub</span>
-              </a>
             </div>
           </div>
         </div>
@@ -89,7 +83,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">OpenTinker</h1>
+            <h1 class="title is-1 publication-title">ctm-ai</h1>
             <h2 class="subtitle is-3 publication-subtitle">Democratizing Agentic Reinforcement Learning as a Service</h2>
             
             <div class="is-size-5 publication-authors">
@@ -115,7 +109,7 @@
           Your browser does not support the video tag.
         </video>
         <h2 class="subtitle has-text-centered mt-4">
-          OpenTinker empowers users to perform RL training and inference without local GPU resources through a seamless, distributed architecture.
+          ctm-ai empowers users to perform RL training and inference without local GPU resources through a seamless, distributed architecture.
         </h2>
       </div>
     </div>
@@ -126,7 +120,7 @@
     <div class="container is-max-desktop">
       <div class="section-header">
         <h2 class="title is-3">Design Philosophy</h2>
-        <p class="subtitle is-5">Core principles driving OpenTinker's architecture</p>
+        <p class="subtitle is-5">Core principles driving ctm-ai's architecture</p>
       </div>
       
       <div class="columns is-centered">
@@ -178,7 +172,7 @@
           <h2 class="title is-3">System Architecture & Protocol</h2>
           <div class="content">
             <p>
-              OpenTinker's architecture consists of three core components with a streamlined three-phase communication protocol:
+              ctm-ai's architecture consists of three core components with a streamlined three-phase communication protocol:
             </p>
             <h5 class="title is-5" style="margin-bottom: 0.5rem;">Architecture Components</h5>
             <ul class="feature-list">
@@ -195,8 +189,8 @@
           </div>
         </div>
         <div class="column is-6 has-text-centered">
-          <img src="static/images/arch.jpg" alt="OpenTinker System Architecture" class="technical-diagram mb-4">
-          <img src="static/images/protocol.jpg" alt="OpenTinker System Protocol" class="technical-diagram">
+          <img src="static/images/arch.jpg" alt="ctm-ai System Architecture" class="technical-diagram mb-4">
+          <img src="static/images/protocol.jpg" alt="ctm-ai System Protocol" class="technical-diagram">
         </div>
       </div>
     </div>
@@ -212,7 +206,7 @@
 
       <div class="content">
         <p>
-          OpenTinker provides a high-level Python API that abstracts away the complexity of distributed systems.
+          ctm-ai provides a high-level Python API that abstracts away the complexity of distributed systems.
           Key components include:
         </p>
 
@@ -235,7 +229,7 @@
                 </div>
                 <div class="column is-7">
                     <h6 class="title is-6 mb-2">Interface Example:</h6>
-<pre class="code-block" style="font-size: 0.8rem; max-height: 350px;"><code>from opentinker.environment.base_game import AbstractGame, StepResult
+<pre class="code-block" style="font-size: 0.8rem; max-height: 350px;"><code>from ctm_ai.environment.base_game import AbstractGame, StepResult
 
 class CustomGame(AbstractGame):
     def get_system_prompt(self) -> str:
@@ -270,7 +264,7 @@ class CustomGame(AbstractGame):
             <!-- Description Row -->
             <div class="content mb-4">
                 <p class="is-size-6">
-                    OpenTinker provides three specialized clients to manage the full lifecycle: 
+                    ctm-ai provides three specialized clients to manage the full lifecycle: 
                     <strong>Job Scheduler</strong>, 
                     <strong>Training Service</strong>, and 
                     <strong>Inference Manager</strong>.
@@ -417,12 +411,11 @@ TERMINATED</pre>
   <section class="section" id="Citation">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
-      <pre><code>@misc{opentinker2025,
-  title        = {OpenTinker: Democratizing Agentic Reinforcement Learning as a Service},
+      <pre><code>@misc{ctmai2025,
+  title        = {ctm-ai},
   author       = {Siqi Zhu and Jiaxuan You},
   year         = {2025},
-  howpublished = {\url{https://github.com/open-tinker/OpenTinker}},
-  note         = {GitHub repository}
+  note         = {}
 }</code></pre>
     </div>
   </section>
