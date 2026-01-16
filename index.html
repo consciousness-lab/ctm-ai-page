@@ -3,41 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ctm-ai</title>
-  
-  <meta name="description" content="ctm-ai">
-  <meta name="keywords" content="ctm-ai">
-  <meta name="author" content="Siqi Zhu, Jiaxuan You">
-  
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+  <title>CTM-AI</title>
+
+  <meta name="description" content="CTM-AI: A blueprint for general AI inspired by the Conscious Turing Machine (CTM).">
+  <meta name="keywords" content="CTM-AI, Conscious Turing Machine, global workspace, agentic AI, multimodal, tool use">
+  <meta name="author" content="Haofei Yu, Yining Zhao, Lenore Blum, Manuel Blum, Paul Pu Liang">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="static/js/index.js"></script>
   
   <style>
     body { font-family: 'Inter', sans-serif; }
     .hero-body { padding: 3rem 1.5rem; }
     .title.is-1 { font-weight: 800; letter-spacing: -1px; }
     .subtitle { font-weight: 400; color: #4a4a4a; }
-    .card { border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; height: 100%; }
+
+    .publication-links .button { margin: 0.25rem; }
+
+    .card { border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.10); transition: transform 0.2s; height: 100%; }
     .card:hover { transform: translateY(-5px); }
     .card-content { padding: 2rem; }
-    .icon-box { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: #f5f5f5; border-radius: 50%; margin-bottom: 1.5rem; color: #3273dc; font-size: 24px; }
-    .code-block { background: #f5f5f5; padding: 1.5rem; border-radius: 8px; font-family: 'Fira Code', monospace; overflow-x: auto; font-size: 0.9em; }
+
+    .icon-box { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: #f5f5f5; border-radius: 50%; margin-bottom: 1.25rem; color: #3273dc; font-size: 24px; }
+
+    .code-block { background: #f5f5f5; padding: 1.25rem; border-radius: 10px; overflow-x: auto; font-size: 0.9em; }
     .feature-list li { margin-bottom: 0.5rem; }
     .feature-list i { margin-right: 0.5rem; color: #3273dc; }
-    .section-header { margin-bottom: 3rem; text-align: center; }
-    .technical-diagram { border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 2rem 0; width: 100%; }
-    .api-method { margin-bottom: 1.5rem; border-left: 4px solid #3273dc; padding-left: 1rem; }
-    .api-method h5 { font-weight: 600; color: #363636; margin-bottom: 0.5rem; }
-    /* Fix for video spacing - More compact */
+
+    .section-header { margin-bottom: 2.5rem; text-align: center; }
+    .technical-diagram { border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.10); margin: 1.25rem 0; width: 100%; }
+
     .hero.teaser .hero-body { padding-top: 0rem; padding-bottom: 1rem; }
-    .hero .hero-body { padding-bottom: 1.5rem; }
+    .pill { display:inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: #f5f5f5; font-size: 0.85rem; margin: 0.15rem 0.15rem 0 0; }
   </style>
 </head>
 <body>
@@ -46,53 +47,87 @@
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="container is-max-desktop">
       <div class="navbar-brand">
-        <a class="navbar-item" href="index.html">
-          <span class="icon">
-            <i class="fas fa-home"></i>
-          </span>
-          <span>ctm-ai</span>
+        <a class="navbar-item" href="#top">
+          <span class="icon"><i class="fas fa-brain"></i></span>
+          <span style="margin-left:0.5rem; font-weight: 600;">CTM-AI</span>
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="blogs/index.html">
-            Blogs
-          </a>
+          <a class="navbar-item" href="#overview">Overview</a>
+          <a class="navbar-item" href="#architecture">Architecture</a>
+          <a class="navbar-item" href="#dynamics">Dynamics</a>
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#citation">Citation</a>
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
+              <a class="button is-link is-light" href="https://github.com/consciousness-lab/ctm-ai" target="_blank" rel="noopener">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+              <a class="button is-link" href="/mnt/data/_arxiv__CTM_AI__A_Blueprint_for_General_AI_Inspired_by_Consciousness.pdf" target="_blank" rel="noopener">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>Paper (PDF)</span>
+              </a>
             </div>
           </div>
         </div>
 
-
       </div>
     </div>
   </nav>
-  <section class="hero">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">ctm-ai</h1>
-            <h2 class="subtitle is-3 publication-subtitle">Democratizing Agentic Reinforcement Learning as a Service</h2>
+            <h1 class="title is-1">CTM-AI</h1>
+            <h2 class="subtitle is-3">A Blueprint for General AI Inspired by a Model of Consciousness</h2>
             
             <div class="is-size-5 publication-authors">
-              <span class="author-block">Siqi Zhu,</span>
-              <span class="author-block">Jiaxuan You</span>
+              <span class="author-block">Haofei Yu,</span>
+              <span class="author-block">Yining Zhao,</span>
+              <span class="author-block">Lenore Blum,</span>
+              <span class="author-block">Manuel Blum,</span>
+              <span class="author-block">Paul Pu Liang</span>
               <br>
-              <span class="author-block">University of Illinois Urbana-Champaign</span>
+              <span class="author-block">UIUC &nbsp;·&nbsp; CMU &nbsp;·&nbsp; UC Berkeley &nbsp;·&nbsp; MIT</span>
             </div>
 
+            <div class="publication-links mt-4">
+              <a class="button is-link" href="/mnt/data/_arxiv__CTM_AI__A_Blueprint_for_General_AI_Inspired_by_Consciousness.pdf" target="_blank" rel="noopener">
+                <span class="icon"><i class="ai ai-file-pdf"></i></span>
+                <span>PDF</span>
+              </a>
+              <a class="button is-link is-light" href="https://github.com/consciousness-lab/ctm-ai" target="_blank" rel="noopener">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>GitHub</span>
+              </a>
+              <a class="button is-light" href="#citation">
+                <span class="icon"><i class="fas fa-quote-right"></i></span>
+                <span>Cite</span>
+              </a>
+            </div>
+
+            <div class="mt-5">
+              <span class="pill"><i class="fas fa-sitemap"></i> Global workspace</span>
+              <span class="pill"><i class="fas fa-tree"></i> Up-tree / Down-tree</span>
+              <span class="pill"><i class="fas fa-link"></i> Processor links</span>
+              <span class="pill"><i class="fas fa-cubes"></i> Many processors</span>
+              <span class="pill"><i class="fas fa-wand-magic-sparkles"></i> Multimodal + tools</span>
+            </div>
 
           </div>
         </div>
@@ -100,322 +135,245 @@
     </div>
   </section>
 
-  <!-- Teaser Video -->
-  <section class="hero teaser">
+  <!-- Teaser -->
+  <section class="hero teaser" id="overview">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video id="teaser" autoplay muted loop playsinline controls width="100%" poster="static/images/demo_poster.jpg">
-          <source src="static/videos/dev20.mp4" type="video/mp4">
+        <video id="teaser" autoplay muted loop playsinline controls width="100%">
+          <source src="static/videos/ctm-ai-overview.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <h2 class="subtitle has-text-centered mt-4">
-          ctm-ai empowers users to perform RL training and inference without local GPU resources through a seamless, distributed architecture.
+          CTM-AI operationalizes the Conscious Turing Machine (CTM) into a practical system: many parallel processors, a limited-capacity workspace, global broadcast, and learned links for multimodal integration.
         </h2>
       </div>
     </div>
   </section>
 
-  <!-- Design Philosophy -->
+  <!-- What is CTM-AI -->
   <section class="section">
     <div class="container is-max-desktop">
       <div class="section-header">
-        <h2 class="title is-3">Design Philosophy</h2>
-        <p class="subtitle is-5">Core principles driving ctm-ai's architecture</p>
-      </div>
-      
-      <div class="columns is-centered">
-        <!-- Card 1 -->
-        <div class="column is-4">
-          <div class="card">
-            <div class="card-content has-text-centered">
-              <span class="icon-box"><i class="fas fa-server"></i></span>
-              <h3 class="title is-4">Programming & Execution Disaggregation</h3>
-              <p class="content">
-                Users can perform RL training and inference <strong>without local GPU resources</strong>. Built-in Distributed Training and Job Scheduling manage resources transparently.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="column is-4">
-          <div class="card">
-            <div class="card-content has-text-centered">
-              <span class="icon-box"><i class="fas fa-gamepad"></i></span>
-              <h3 class="title is-4">Environment & Training Disaggregation</h3>
-              <p class="content">
-                Simplifies the design of various agentic task environments. Includes support for any <strong>single-turn and multi-turn</strong> agentic tasks.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="column is-4">
-          <div class="card">
-            <div class="card-content has-text-centered">
-              <span class="icon-box"><i class="fas fa-rocket"></i></span>
-              <h3 class="title is-4">Training to Inference</h3>
-              <p class="content">
-                Environments and agentic workflows can be <strong>seamlessly connected to inference</strong>, allowing trained models to be directly applied without code changes.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Architecture & Protocol -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered is-vcentered">
-        <div class="column is-6">
-          <h2 class="title is-3">System Architecture & Protocol</h2>
-          <div class="content">
-            <p>
-              ctm-ai's architecture consists of three core components with a streamlined three-phase communication protocol:
-            </p>
-            <h5 class="title is-5" style="margin-bottom: 0.5rem;">Architecture Components</h5>
-            <ul class="feature-list">
-              <li><i class="fas fa-laptop-code"></i> <strong>Client:</strong> Lightweight local interface for defining environments and submitting training jobs. Requires no local GPU.</li>
-              <li><i class="fas fa-server"></i> <strong>Scheduler & Worker Pool:</strong> Central coordinator that manages GPU resource allocation and maintains a pool of available Workers.</li>
-              <li><i class="fas fa-microchip"></i> <strong>Training Server (GPU Worker):</strong> Dedicated GPU-powered worker that executes model training and rollout generation.</li>
-            </ul>
-            <h5 class="title is-5" style="margin-bottom: 0.5rem; margin-top: 1rem;">Protocol Flow</h5>
-            <ol class="feature-list">
-              <li><i class="fas fa-paper-plane"></i> <strong>Job Submit:</strong> Client sends job request (model config, training/inference args) to the Scheduler.</li>
-              <li><i class="fas fa-tasks"></i> <strong>Allocation:</strong> Scheduler allocates GPU Worker(s) from the pool and spawns a Training/Inference Server instance.</li>
-              <li><i class="fas fa-bolt"></i> <strong>Data Streaming:</strong> Client establishes a link with the Training/Inference Server for real-time metrics.</li>
-            </ol>
-          </div>
-        </div>
-        <div class="column is-6 has-text-centered">
-          <img src="static/images/arch.jpg" alt="ctm-ai System Architecture" class="technical-diagram mb-4">
-          <img src="static/images/protocol.jpg" alt="ctm-ai System Protocol" class="technical-diagram">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Programming Interfaces -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="section-header">
-        <h2 class="title is-3">Programming Interfaces</h2>
-        <p class="subtitle is-5">Unified APIs for Training and Inference</p>
+        <h2 class="title is-3">What is CTM-AI?</h2>
+        <p class="subtitle is-5">A concrete blueprint that translates CTM theory into a modular, testable AI system</p>
       </div>
 
       <div class="content">
         <p>
-          ctm-ai provides a high-level Python API that abstracts away the complexity of distributed systems.
-          Key components include:
+          CTM-AI implements a <strong>global-workspace</strong> architecture inspired by the formal <em>Conscious Turing Machine</em>. Instead of relying on a single monolithic model or a fixed multi-agent script, CTM-AI uses
+          a <strong>large collection of processors</strong> (LLMs/VLMs/tools/memory modules) that compete to contribute information; the winning “chunk” enters a small workspace and is broadcast back to all processors, while
+          <strong>links</strong> form over time to enable fast unconscious information sharing.
         </p>
+      </div>
+      
+      <div class="columns is-centered">
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content has-text-centered">
+              <span class="icon-box"><i class="fas fa-cubes"></i></span>
+              <h3 class="title is-4">Many Processors</h3>
+              <p class="content">
+                A set of specialized and unspecialized modules (sensory, cognitive, tool, motor, memory) that run in parallel and produce candidate “chunks”.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content has-text-centered">
+              <span class="icon-box"><i class="fas fa-bullseye"></i></span>
+              <h3 class="title is-4">Selective Attention</h3>
+              <p class="content">
+                A limited-capacity <strong>short-term workspace</strong> admits only one winning chunk via up-tree competition, enforcing attention and preventing overload.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content has-text-centered">
+              <span class="icon-box"><i class="fas fa-link"></i></span>
+              <h3 class="title is-4">Learned Links</h3>
+              <p class="content">
+                Processors form and break links based on usefulness, enabling multimodal fusion and “unconscious” communication without a central executive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="section hero is-light" id="architecture">
+    <div class="container is-max-desktop">
+      <div class="section-header">
+        <h2 class="title is-3">System Architecture</h2>
+      </div>
       <div class="content">
-        <div class="box has-background-light mb-6">
-            <h4 class="title is-4 mb-3">Environment Abstraction</h4>
-            <div class="columns is-vcentered">
-                <div class="column is-5">
-                    <p class="is-size-6">
-                        A unified wrapper that encapsulates your custom game logic. It handles data loading—supporting both static datasets and dynamic generation—and integrates seamlessly with the distributed training loop.
-                    </p>
-                    <p class="is-size-6 mt-4">
-                        <strong>Key features:</strong>
-                    </p>
+        <p>
+          CTM-AI follows the CTM 7-tuple: <code>&lt;STM, LTM, Up-Tree, Down-Tree, Links, Input, Output&gt;</code>.
+          In practice:
+        </p>
+        <ul class="feature-list">
+          <li><i class="fas fa-memory"></i><strong>LTM processors:</strong> modules with private state and an <code>execute / read / write</code> interface that output <em>chunks</em> (gist, follow-up question, confidence weight).</li>
+          <li><i class="fas fa-brain"></i><strong>STM workspace:</strong> a stateless "supervisor" LLM that consumes the winning chunk + user query to produce the final action/answer and a confidence score.</li>
+          <li><i class="fas fa-tree"></i><strong>Up-tree / Down-tree:</strong> selection into STM and global broadcast back to all LTMs.</li>
+          <li><i class="fas fa-link"></i><strong>Links:</strong> dynamic edges between processors to support iterative, cross-processor fusion.</li>
+        </ul>
+        <p>
+          This structure generalizes single-model reasoning (when only one processor is active) and supports multimodal + tool-using behavior through the same competition-and-broadcast loop.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamics -->
+  <section class="section" id="dynamics">
+    <div class="container is-max-desktop">
+      <div class="section-header">
+        <h2 class="title is-3">Core Dynamics</h2>
+        <p class="subtitle is-5">Collect → Compete → Broadcast → Link & Fuse → Feedback</p>
+      </div>
+
+      <div class="has-text-centered mb-5">
+        <img src="static/images/ctm_method.png" alt="CTM-AI method diagram" class="technical-diagram" style="max-width: 100%;">
+      </div>
+
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <div class="box has-background-light" style="height: 100%">
+            <h4 class="title is-5"><i class="fas fa-layer-group mr-2"></i>1) Chunk Collection (Parallel)</h4>
+            <p class="is-size-6">All processors observe the query (and their modality/tool context) and output a <strong>chunk</strong>:</p>
                     <ul class="is-size-6">
-                        <li>Standardized <code>reset()</code> and <code>step()</code> interface</li>
-                        <li>Built-in prompt engineering integration</li>
-                        <li>Automatic data generation hooks</li>
+              <li><strong>gist</strong>: a short English summary useful for the query</li>
+              <li><strong>additional_question</strong>: what information to ask other processors for</li>
+              <li><strong>weight</strong>: relevance/confidence-based score for competition</li>
                     </ul>
                 </div>
-                <div class="column is-7">
-                    <h6 class="title is-6 mb-2">Interface Example:</h6>
-<pre class="code-block" style="font-size: 0.8rem; max-height: 350px;"><code>from ctm_ai.environment.base_game import AbstractGame, StepResult
+        </div>
 
-class CustomGame(AbstractGame):
-    def get_system_prompt(self) -> str:
-        return "You are an agent playing a custom game..."
-
-    def get_initial_user_message(self) -> str:
-        return "Game starts. Your turn."
-
-    def reset(self, **kwargs) -> str:
-        # Initialize game state
-        self.state = "start"
-        return "Initial observation"
-
-    def step(self, action: str) -> StepResult:
-        # 1. Parse and validate action
-        if not self.is_valid(action):
-             return StepResult(observation="Invalid", reward=-1.0, done=False)
-        
-        # 2. Update state and check win condition
-        new_obs, reward, done = self.engine.step(action)
-        
-        # 3. Return result
-        return StepResult(observation=new_obs, reward=reward, done=done)</code></pre>
-                </div>
+        <div class="column is-6">
+          <div class="box has-background-light" style="height: 100%">
+            <h4 class="title is-5"><i class="fas fa-trophy mr-2"></i>2) Up-tree Competition (Selection)</h4>
+            <p class="is-size-6">A single chunk is selected into the workspace (STM). In the implementation, selection can be simplified to a global argmax over weights when few processors are active.</p>
             </div>
         </div>
 
-        <!-- Client Design Section -->
-        <div class="box has-background-white-ter">
-            <h4 class="title is-4 mb-3">Client Design</h4>
-            
-            <!-- Description Row -->
-            <div class="content mb-4">
-                <p class="is-size-6">
-                    ctm-ai provides three specialized clients to manage the full lifecycle: 
-                    <strong>Job Scheduler</strong>, 
-                    <strong>Training Service</strong>, and 
-                    <strong>Inference Manager</strong>.
-                </p>
+        <div class="column is-6">
+          <div class="box has-background-light" style="height: 100%">
+            <h4 class="title is-5"><i class="fas fa-broadcast-tower mr-2"></i>3) Down-tree Broadcast (Attention)</h4>
+            <p class="is-size-6">The winning chunk is broadcast to all processors and written into their private memories, aligning context for the next iteration.</p>
             </div>
-
-            <!-- Code Row -->
-            <div class="columns">
-                <!-- Training Code -->
-                <div class="column is-6">
-                    <h6 class="title is-6 mb-2">Training Workflow:</h6>
-<pre class="code-block" style="font-size: 0.75rem; min-height: 250px;"><code># 1. Submit Job via Scheduler
-scheduler = SchedulerClient(url=server_url)
-job_result = scheduler.submit_job(config=args, num_gpus=8)
-job_id, server_url = job_result["job_id"], job_result["server_url"]
-
-# 2. Initialize Environment
-env = GameEnvironment(
-    game_class=GomokuGame,
-    config=args,
-    job_id=job_id
-)
-
-# 3. Connect & Train
-client = ServiceClient(server_url=server_url)
-client.set_config(args, env)
-client.fit(env=env, num_epochs=args.num_epochs)</code></pre>
                 </div>
 
-                <!-- Inference Code -->
                 <div class="column is-6">
-                    <h6 class="title is-6 mb-2">Inference Workflow:</h6>
-<pre class="code-block" style="font-size: 0.75rem; min-height: 250px;"><code># 1. Submit Inference Job
-scheduler = InferenceSchedulerClient(url=scheduler_url)
-job_result = scheduler.submit_inference_job(
-    model_path=args.model_path,
-    num_gpus=args.num_gpus
-)
-job_id, vllm_server_url = job_result["job_id"], job_result["vllm_server_url"]
-
-# 2. Run Inference via Pipeline
-run_inference(
-    vllm_server_url=vllm_server_url,
-    data_path=args.data_path,
-    game_class=MathGame,
-    job_id=job_id,
-    output_path=args.output_path
-)</code></pre>
+          <div class="box has-background-light" style="height: 100%">
+            <h4 class="title is-5"><i class="fas fa-link mr-2"></i>4) Link Formation & Fusion</h4>
+            <p class="is-size-6">Links form when another processor answers the winner’s follow-up question with high relevance; linked processors exchange answers to enrich each other’s memory for deeper multimodal/tool reasoning.</p>
                 </div>
+        </div>
+
+        <div class="column is-12">
+          <div class="box has-background-white-ter">
+            <h4 class="title is-5"><i class="fas fa-gauge-high mr-2"></i>Efficiency (per iteration)</h4>
+            <p class="is-size-6">If there are <code>K</code> processors and <code>L</code> links, one iteration performs about <code>2(K + L)</code> processor calls. Most stages are parallelizable; time is dominated by API/model calls (roughly “3 calls worth” per iteration), with 1–3 iterations typical.</p>
             </div>
         </div>
       </div>
+
+      <div class="has-text-centered mt-5">
+        <h3 class="title is-4">Case Study Snapshot</h3>
+        <p class="is-size-6 mb-4">
+          In a sarcasm example, text/video/audio processors iteratively ask each other for missing context (dialogue, facial expression, tone), links form between relevant processors, and the winning evidence changes across iterations until the system converges.
+        </p>
+        <img src="static/images/ctm_case_study.png" alt="CTM-AI case study diagram" class="technical-diagram" style="max-width: 100%;">
       </div>
+
     </div>
   </section>
 
-  <!-- Internal API -->
-  <section class="section hero is-light">
+  <!-- Results -->
+  <section class="section hero is-light" id="results">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered mb-4">Internal API: The RL <code>fit()</code> Interface</h2>
-      
-      <div class="columns">
-        <div class="column is-10 is-offset-1">
-          <div class="content">
-            <p class="has-text-centered mb-5">
-              The <code>fit()</code> method acts as the central <strong>Reinforcement Learning orchestrator</strong>, transforming the complex distributed training backend into a clean, synchronous procedure. 
-              <br>
-              <em class="is-size-7 has-text-grey">Note: While encapsulated within <code>fit()</code>, users are fully empowered to modify this logic for custom training schedules.</em>
-            </p>
-            
-            <div class="columns is-multiline is-variable is-2">
-                <div class="column is-6">
-                    <div class="box has-background-white-ter py-3 px-4" style="height: 100%">
-                        <h6 class="title is-6 mb-2"><i class="fas fa-handshake mr-2"></i>Initialization & Handshake</h6>
-                        <p class="is-size-7">Establishes secure connections, verifies server health, and provisions worker groups.</p>
-                    </div>
-                </div>
-                <div class="column is-6">
-                    <div class="box has-background-white-ter py-3 px-4" style="height: 100%">
-                        <h6 class="title is-6 mb-2"><i class="fas fa-sync mr-2"></i>State Synchronization</h6>
-                        <p class="is-size-7">Aligns experiment context, environment configs, and hyperparameters with the remote service.</p>
-                    </div>
-                </div>
-                <div class="column is-6">
-                    <div class="box has-background-white-ter py-3 px-4" style="height: 100%">
-                        <h6 class="title is-6 mb-2"><i class="fas fa-cog fa-spin mr-2"></i>RL Execution Loop</h6>
-                        <p class="is-size-7">Orchestrates the RL loop: serializes data, executes training steps on GPU clusters, and streams metrics.</p>
-                    </div>
-                </div>
-                <div class="column is-6">
-                    <div class="box has-background-white-ter py-3 px-4" style="height: 100%">
-                        <h6 class="title is-6 mb-2"><i class="fas fa-save mr-2"></i>Lifecycle Management</h6>
-                        <p class="is-size-7">Handles periodic policy evaluation and ensures checkpoints are safely persisted.</p>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
+      <div class="section-header">
+        <h2 class="title is-3">Empirical Results</h2>
+        <p class="subtitle is-5">Multimodal perception, tool learning, and web-agent tasks</p>
       </div>
-    </div>
-  </section>
 
+      <div class="columns is-multiline">
+                <div class="column is-6">
+          <div class="box has-background-white" style="height: 100%">
+            <h4 class="title is-5">Multimodal Perception</h4>
+            <p class="is-size-6">CTM-AI improves sarcasm and humor understanding by integrating text/audio/video processors through broadcast + linking.</p>
+            <table class="table is-striped is-fullwidth is-size-7">
+              <thead>
+                <tr><th>Benchmark</th><th>Metric</th><th>CTM-AI</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>MUStARD</td><td>Acc / F1</td><td><strong>73.88</strong> / <strong>73.77</strong></td></tr>
+                <tr><td>URFunny</td><td>Acc / F1</td><td><strong>71.64</strong> / <strong>71.62</strong></td></tr>
+              </tbody>
+            </table>
+            <p class="is-size-7 has-text-grey">Numbers reported from the paper tables.</p>
+                    </div>
+                </div>
 
-  <!-- Agent Loop -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-vcentered">
-        <div class="column is-7">
-          <h2 class="title is-3">Agent Loop Design</h2>
-          <p class="subtitle is-5">Based on <code>GenericAgentLoop</code></p>
-          <div class="content">
-            <p>
-              We extend the <strong>Verl</strong> agent loop to support flexible, multi-turn interactions. The `GenericAgentLoop` implements a robust state machine:
-            </p>
-            <ol>
-              <li><strong>PENDING:</strong> Tokenize initial prompt.</li>
-              <li><strong>GENERATING:</strong> LLM generates response tokens (mask=1 for loss).</li>
-              <li><strong>INTERACTING:</strong> System executes action in environment, receives observation (mask=0).</li>
-              <li><strong>TERMINATED:</strong> Episode complete.</li>
-            </ol>
-            <p>
-              This design supports both single-turn reasoning (Math) and multi-turn sequential decision making (Gomoku, Math Tool Calling) within a unified codebase, and can be easily extended to any similar agentic environments.
-            </p>
+                <div class="column is-6">
+          <div class="box has-background-white" style="height: 100%">
+            <h4 class="title is-5">Tool Learning (StableToolBench)</h4>
+            <p class="is-size-6">CTM-AI composes multiple API processors and uses iterative feedback to improve multi-step tool execution.</p>
+            <table class="table is-striped is-fullwidth is-size-7">
+              <thead>
+                <tr><th>Setting</th><th>CTM-AI Score ↑</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>I2-Cat.</td><td><strong>39.1 ± 2.0</strong></td></tr>
+                <tr><td>I2-Inst.</td><td><strong>51.5 ± 1.9</strong></td></tr>
+                <tr><td>I3-Inst.</td><td><strong>38.5 ± 1.3</strong></td></tr>
+              </tbody>
+            </table>
+            <p class="is-size-7 has-text-grey">Solvable pass rate evaluated with GPT-4o (as described in the paper).</p>
           </div>
         </div>
-        <div class="column is-5">
-           <div class="box has-background-white">
-             <h5 class="title is-6 mb-2">State Machine</h5>
-             <pre class="is-size-7" style="background: none; padding: 0;">
-PENDING
-  ↓
-GENERATING ◄──┐
-  ↓           │
-INTERACTING ──┘
-  ↓
-TERMINATED</pre>
-           </div>
+
+        <div class="column is-12">
+          <div class="box has-background-white">
+            <h4 class="title is-5">WebAgent (WebArena)</h4>
+            <p class="is-size-6">
+              CTM-AI augments a base multimodal model with dedicated web processors (HTML, accessibility tree, screenshot) and memory, improving success rate across web domains.
+            </p>
+            <table class="table is-striped is-fullwidth is-size-7">
+              <thead>
+                <tr><th>Model</th><th>Overall SR</th><th>Reddit</th><th>Gitlab</th><th>CMS</th><th>Map</th><th>OSS</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Base Model</td><td>8.3</td><td>21.4</td><td>36.1</td><td>16.1</td><td>19.6</td><td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>CTM-AI</strong></td><td><strong>12.5</strong></td><td><strong>21.4</strong></td><td><strong>38.9</strong></td><td><strong>16.1</strong></td><td><strong>23.9</strong></td><td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="is-size-7 has-text-grey">Domain columns follow the paper’s WebArena table.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Citation -->
-  <section class="section" id="Citation">
+  <section class="section" id="citation">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
-      <pre><code>@misc{ctmai2025,
-  title        = {ctm-ai},
-  author       = {Siqi Zhu and Jiaxuan You},
+      <pre class="code-block"><code>@misc{ctmai2025,
+  title        = {CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness},
+  author       = {Haofei Yu and Yining Zhao and Lenore Blum and Manuel Blum and Paul Pu Liang},
   year         = {2025},
-  note         = {}
+  note         = {Preprint}
 }</code></pre>
     </div>
   </section>
@@ -424,11 +382,12 @@ TERMINATED</pre>
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          Built with Bulma. Figures are rendered from the paper PDF.
         </p>
       </div>
     </div>
   </footer>
 
+  <script src="static/js/index.js"></script>
 </body>
 </html>
