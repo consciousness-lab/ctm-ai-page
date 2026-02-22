@@ -63,7 +63,6 @@
           <a class="navbar-item" href="#overview">Overview</a>
           <a class="navbar-item" href="#architecture">Architecture</a>
           <a class="navbar-item" href="#dynamics">Dynamics</a>
-          <a class="navbar-item" href="#results">Results</a>
           <a class="navbar-item" href="#citation">Citation</a>
         </div>
 
@@ -74,10 +73,10 @@
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>Code</span>
               </a>
-              <a class="button is-link" href="/mnt/data/_arxiv__CTM_AI__A_Blueprint_for_General_AI_Inspired_by_Consciousness.pdf" target="_blank" rel="noopener">
+              <span class="button is-link" title="To Be Announced" style="cursor: default;">
                 <span class="icon"><i class="ai ai-arxiv"></i></span>
-                <span>Paper (PDF)</span>
-              </a>
+                <span>Paper (TBA)</span>
+              </span>
             </div>
           </div>
         </div>
@@ -106,10 +105,10 @@
             </div>
 
             <div class="publication-links mt-4">
-              <a class="button is-link" href="/mnt/data/_arxiv__CTM_AI__A_Blueprint_for_General_AI_Inspired_by_Consciousness.pdf" target="_blank" rel="noopener">
+              <span class="button is-link" title="To Be Announced" style="cursor: default;">
                 <span class="icon"><i class="ai ai-file-pdf"></i></span>
-                <span>PDF</span>
-              </a>
+                <span>PDF (TBA)</span>
+              </span>
               <a class="button is-link is-light" href="https://github.com/consciousness-lab/ctm-ai" target="_blank" rel="noopener">
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>GitHub</span>
@@ -134,17 +133,39 @@
     </div>
   </section>
 
-  <!-- Teaser -->
+  <!-- Overview Video -->
   <section class="hero teaser" id="overview">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video id="teaser" autoplay muted loop playsinline controls width="100%">
-          <source src="static/videos/ctm-ai-overview.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe src="https://www.youtube.com/embed/Wp860sJ4UQA?si=3CCi1wtQLNO_5sFs" title="CTM-AI Overview Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        </div>
         <h2 class="subtitle has-text-centered mt-4">
           CTM-AI operationalizes the Conscious Turing Machine (CTM) into a practical system: many parallel processors, a limited-capacity workspace, global broadcast, and learned links for multimodal integration.
         </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Videos -->
+  <section class="section" id="demos">
+    <div class="container is-max-desktop">
+      <div class="section-header">
+        <h2 class="title is-3">System Demos</h2>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <h4 class="title is-5 has-text-centered">Minimal Case Demo</h4>
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <iframe src="https://www.youtube.com/embed/MGPpdYjCL40?si=FqQ19PSH0uzuhqCE" title="CTM-AI Minimal Case Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+        </div>
+        <div class="column is-6">
+          <h4 class="title is-5 has-text-centered">Multimodal Case Demo</h4>
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <iframe src="https://www.youtube.com/embed/HbQ4IGnXjt4?si=evihF2eYmTIF9YQ_" title="CTM-AI Multimodal Case Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -293,85 +314,14 @@
     </div>
   </section>
 
-  <!-- Results -->
-  <section class="section hero is-light" id="results">
-    <div class="container is-max-desktop">
-      <div class="section-header">
-        <h2 class="title is-3">Empirical Results</h2>
-        <p class="subtitle is-5">Multimodal perception, tool learning, and web-agent tasks</p>
-      </div>
-
-      <div class="columns is-multiline">
-                <div class="column is-6">
-          <div class="box has-background-white" style="height: 100%">
-            <h4 class="title is-5">Multimodal Perception</h4>
-            <p class="is-size-6">CTM-AI improves sarcasm and humor understanding by integrating text/audio/video processors through broadcast + linking.</p>
-            <table class="table is-striped is-fullwidth is-size-7">
-              <thead>
-                <tr><th>Benchmark</th><th>Metric</th><th>CTM-AI</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>MUStARD</td><td>Acc / F1</td><td><strong>73.88</strong> / <strong>73.77</strong></td></tr>
-                <tr><td>URFunny</td><td>Acc / F1</td><td><strong>71.64</strong> / <strong>71.62</strong></td></tr>
-              </tbody>
-            </table>
-            <p class="is-size-7 has-text-grey">Numbers reported from the paper tables.</p>
-                    </div>
-                </div>
-
-                <div class="column is-6">
-          <div class="box has-background-white" style="height: 100%">
-            <h4 class="title is-5">Tool Learning (StableToolBench)</h4>
-            <p class="is-size-6">CTM-AI composes multiple API processors and uses iterative feedback to improve multi-step tool execution.</p>
-            <table class="table is-striped is-fullwidth is-size-7">
-              <thead>
-                <tr><th>Setting</th><th>CTM-AI Score ↑</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>I2-Cat.</td><td><strong>39.1 ± 2.0</strong></td></tr>
-                <tr><td>I2-Inst.</td><td><strong>51.5 ± 1.9</strong></td></tr>
-                <tr><td>I3-Inst.</td><td><strong>38.5 ± 1.3</strong></td></tr>
-              </tbody>
-            </table>
-            <p class="is-size-7 has-text-grey">Solvable pass rate evaluated with GPT-4o (as described in the paper).</p>
-          </div>
-        </div>
-
-        <div class="column is-12">
-          <div class="box has-background-white">
-            <h4 class="title is-5">WebAgent (WebArena)</h4>
-            <p class="is-size-6">
-              CTM-AI augments a base multimodal model with dedicated web processors (HTML, accessibility tree, screenshot) and memory, improving success rate across web domains.
-            </p>
-            <table class="table is-striped is-fullwidth is-size-7">
-              <thead>
-                <tr><th>Model</th><th>Overall SR</th><th>Reddit</th><th>Gitlab</th><th>CMS</th><th>Map</th><th>OSS</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Base Model</td><td>8.3</td><td>21.4</td><td>36.1</td><td>16.1</td><td>19.6</td><td>-</td>
-                </tr>
-                <tr>
-                  <td><strong>CTM-AI</strong></td><td><strong>12.5</strong></td><td><strong>21.4</strong></td><td><strong>38.9</strong></td><td><strong>16.1</strong></td><td><strong>23.9</strong></td><td>-</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="is-size-7 has-text-grey">Domain columns follow the paper’s WebArena table.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- Citation -->
   <section class="section" id="citation">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
-      <pre class="code-block"><code>@misc{ctmai2025,
+      <pre class="code-block"><code>@misc{ctmai2026,
   title        = {CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness},
   author       = {Haofei Yu and Yining Zhao and Lenore Blum and Manuel Blum and Paul Pu Liang},
-  year         = {2025},
+  year         = {2026},
   note         = {Preprint}
 }</code></pre>
     </div>
