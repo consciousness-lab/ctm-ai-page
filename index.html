@@ -22,6 +22,16 @@
     .subtitle { font-weight: 400; color: #4a4a4a; }
 
     .publication-links .button { margin: 0.25rem; }
+    .pdf-button {
+      background-color: #a23a32 !important;
+      border-color: #a23a32 !important;
+      color: #ffffff !important;
+    }
+    .pdf-button:hover {
+      background-color: #842e27 !important;
+      border-color: #842e27 !important;
+      color: #ffffff !important;
+    }
     .repo-button {
       background-color: #1f5fbf !important;
       border-color: #1f5fbf !important;
@@ -30,6 +40,16 @@
     .repo-button:hover {
       background-color: #184d9b !important;
       border-color: #184d9b !important;
+      color: #ffffff !important;
+    }
+    .cite-button {
+      background-color: #245b4b !important;
+      border-color: #245b4b !important;
+      color: #ffffff !important;
+    }
+    .cite-button:hover {
+      background-color: #1b473a !important;
+      border-color: #1b473a !important;
       color: #ffffff !important;
     }
 
@@ -116,7 +136,7 @@
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>Code</span>
               </a>
-              <span class="button is-link" title="To Be Announced" style="cursor: default;">
+              <span class="button pdf-button" title="To Be Announced" style="cursor: default;">
                 <span class="icon"><i class="ai ai-arxiv"></i></span>
                 <span>Paper (TBA)</span>
               </span>
@@ -158,7 +178,7 @@
             </div>
 
             <div class="publication-links mt-4">
-              <span class="button is-link" title="To Be Announced" style="cursor: default;">
+              <span class="button pdf-button" title="To Be Announced" style="cursor: default;">
                 <span class="icon"><i class="fas fa-file-pdf"></i></span>
                 <span>PDF (TBA)</span>
               </span>
@@ -166,7 +186,7 @@
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>GitHub</span>
               </a>
-              <a class="button is-light" href="#citation">
+              <a class="button cite-button" href="#citation">
                 <span class="icon"><i class="fas fa-quote-right"></i></span>
                 <span>Cite</span>
               </a>
