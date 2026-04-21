@@ -1,107 +1,1023 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ctm-ai Blog</title>
-  
-  <meta name="description" content="ctm-ai Blog">
-  <meta name="keywords" content="ctm-ai, Blog">
-  <meta name="author" content="Siqi Zhu, Jiaxuan You">
-  
-  <link rel="stylesheet" href="../static/css/bulma.min.css">
-  <link rel="stylesheet" href="../static/css/index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness</title>
 
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="posts.js"></script>
-  <script defer src="../static/js/index.js"></script>
-  
+    <meta name="description" content="CTM-AI: A blueprint for general AI inspired by the Conscious Turing Machine (CTM)." />
+    <meta name="keywords" content="CTM-AI, Conscious Turing Machine, global workspace, agentic AI, multimodal, tool use" />
+    <meta name="author" content="Haofei Yu, Yining Zhao, Lenore Blum, Manuel Blum, Paul Pu Liang" />
 
-</head>
-<body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap");
 
-  <!-- Navigation -->
-  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-    <div class="container is-max-desktop">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="../index.html">
-          <span class="icon">
-            <i class="fas fa-home"></i>
-          </span>
-          <span>ctm-ai</span>
-        </a>
+      :root {
+        --sans: "DM Sans", -apple-system, sans-serif;
+        --serif: "Source Serif 4", Georgia, serif;
+        --mono: "DM Mono", "SF Mono", Consolas, monospace;
+        --r: 14px;
+        --r-sm: 10px;
+        --r-pill: 20px;
+        --nav-h: 52px;
+        --toc-w: 180px;
+      }
+      [data-theme="light"] {
+        --bg: #f3f6fb;
+        --card: #e8edf6;
+        --elevated: #dde4f0;
+        --deep: #d2daea;
+        --code-bg: #1a1e24;
+        --border: #bec8d8;
+        --line: #aab4c6;
+        --t1: #18222e;
+        --t2: #26323f;
+        --t3: #415060;
+        --t4: #647585;
+        --t5: #8e9eae;
+        --code-t: #ced4dc;
+        --badge-bg: #18222e;
+        --badge-t: #f3f6fb;
+        --link: #2a5282;
+        --link-h: #18222e;
+      }
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-h) + 24px);
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--t2);
+        font-size: 17px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      a:hover {
+        color: var(--link-h);
+      }
+      ::selection {
+        background: var(--badge-bg);
+        color: var(--badge-t);
+      }
+
+      /* NAV */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        background: var(--bg);
+        border-bottom: 0.7px solid var(--border);
+      }
+      .nav-logo {
+        font-family: var(--sans);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--t1);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: 0.02em;
+      }
+      .nav-logo .brain {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background: var(--badge-bg);
+        color: var(--badge-t);
+        font-size: 12px;
+      }
+      .nav-r {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-link {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--t4);
+        padding: 5px 10px;
+        border-radius: var(--r-sm);
+        transition: all 0.15s;
+      }
+      .nav-link:hover {
+        color: var(--t2);
+        background: var(--card);
+      }
+      .gh-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 12px;
+        border-radius: var(--r-pill);
+        background: var(--badge-bg);
+        color: #f3f6fb;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        transition: opacity 0.15s;
+        margin-left: 4px;
+      }
+      .gh-pill,
+      .gh-pill:visited,
+      .gh-pill:link {
+        color: #f3f6fb;
+      }
+      .gh-pill:hover {
+        opacity: 0.85;
+        color: #f3f6fb;
+      }
+      .gh-pill svg {
+        flex-shrink: 0;
+      }
+
+      /* HERO */
+      .hero-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .hero {
+        text-align: center;
+        padding: 72px 0 40px;
+      }
+      .hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 6vw, 64px);
+        font-weight: 700;
+        color: var(--t1);
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        margin-bottom: 14px;
+      }
+      .hero-sub {
+        font-family: var(--serif);
+        font-size: clamp(18px, 2.4vw, 24px);
+        color: var(--t3);
+        max-width: 720px;
+        margin: 0 auto 22px;
+        line-height: 1.35;
+        font-weight: 400;
+      }
+      .hero-date {
+        font-size: 12.5px;
+        color: var(--t4);
+        margin-bottom: 16px;
+      }
+      .hero-authors {
+        margin: 0 auto 24px;
+        max-width: 780px;
+        text-align: center;
+      }
+      .author-row {
+        font-size: 17px;
+        color: var(--t2);
+        margin-bottom: 6px;
+        line-height: 1.8;
+      }
+      .author-name {
+        display: inline;
+        white-space: nowrap;
+      }
+      .author-core {
+        font-weight: 600;
+        color: var(--t1);
+      }
+      .author-sep {
+        color: var(--t5);
+        margin: 0 2px;
+      }
+      .author-affil {
+        font-size: 15px;
+        color: var(--t4);
+        margin-top: 10px;
+        line-height: 1.8;
+      }
+      .author-equal {
+        font-size: 12.5px;
+        color: var(--t4);
+        margin-top: 6px;
+        font-style: italic;
+      }
+      .author-equal sup {
+        font-size: 10px;
+        margin-right: 2px;
+      }
+      .author-contact {
+        font-size: 13px;
+        color: var(--t3);
+        margin-top: 8px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 16px;
+        border-radius: var(--r-pill);
+        font-family: var(--sans);
+        font-size: 12.5px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .btn-dark {
+        background: var(--badge-bg);
+        color: var(--badge-t);
+      }
+      .btn-dark:hover {
+        opacity: 0.85;
+        color: var(--badge-t);
+      }
+      .btn-ghost {
+        background: transparent;
+        border: 0.7px solid var(--border);
+        color: var(--t2);
+      }
+      .btn-ghost:hover {
+        background: var(--card);
+        color: var(--t1);
+      }
+      .btn-disabled {
+        background: var(--card);
+        color: var(--t4);
+        cursor: default;
+      }
+      .btn-disabled:hover {
+        opacity: 1;
+      }
+
+      /* Feature pills (hero) */
+      .feat-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        margin-top: 22px;
+      }
+      .feat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: var(--r-pill);
+        background: var(--card);
+        border: 0.7px solid var(--border);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--t2);
+        letter-spacing: 0.01em;
+      }
+
+      /* TLDR */
+      .tldr {
+        background: var(--card);
+        border-radius: 0 12px 12px 0;
+        border-left: 3px solid var(--t1);
+        padding: 16px 22px;
+        margin: 0 auto 32px;
+        max-width: 760px;
+      }
+      .tldr-body {
+        font-size: 17px;
+        line-height: 1.75;
+        color: var(--t2);
+      }
+      .tldr-body strong {
+        color: var(--t1);
+      }
+
+      /* LAYOUT */
+      .layout {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 28px 80px;
+        position: relative;
+      }
+
+      /* Sticky left TOC */
+      .toc {
+        position: fixed;
+        top: calc(var(--nav-h) + 24px);
+        width: 180px;
+        right: calc(50% + 410px);
+        max-height: calc(100vh - var(--nav-h) - 48px);
+        overflow-y: auto;
+        padding: 4px 0;
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
+      .toc.visible {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+      }
+      .toc-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--t4);
+        margin-bottom: 10px;
+      }
+      .toc a {
+        display: block;
+        font-size: 12.5px;
+        color: var(--t4);
+        padding: 4px 0 4px 12px;
+        border-left: 2px solid transparent;
+        transition: all 0.15s;
+        line-height: 1.45;
+      }
+      .toc a:hover {
+        color: var(--t2);
+      }
+      .toc a.active {
+        color: var(--t1);
+        border-left-color: var(--t1);
+        font-weight: 500;
+      }
+      .toc a.sub {
+        padding-left: 24px;
+        font-size: 12px;
+      }
+
+      /* ARTICLE */
+      .article {
+        max-width: 100%;
+        min-width: 0;
+      }
+      .article h2 {
+        font-family: var(--serif);
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--t1);
+        letter-spacing: -0.3px;
+        line-height: 1.3;
+        margin: 52px 0 14px;
+        padding-top: 20px;
+      }
+      .article h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .article h3 {
+        font-family: var(--serif);
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--t1);
+        letter-spacing: -0.2px;
+        margin: 32px 0 10px;
+      }
+      .article h4 {
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--t1);
+        letter-spacing: -0.1px;
+        margin: 24px 0 8px;
+      }
+      .article p {
+        margin-bottom: 14px;
+      }
+      .article strong {
+        color: var(--t1);
+        font-weight: 600;
+      }
+      .article em {
+        color: var(--t2);
+      }
+      .article ul,
+      .article ol {
+        margin: 0 0 14px 22px;
+      }
+      .article li {
+        margin-bottom: 6px;
+      }
+      .article code {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        background: var(--card);
+        padding: 2px 6px;
+        border-radius: 5px;
+        color: var(--t1);
+      }
+      .article a {
+        color: var(--link);
+      }
+      .article a:hover {
+        color: var(--link-h);
+        text-decoration: underline;
+      }
+
+      /* Section subtitle */
+      .section-sub {
+        font-size: 15px;
+        color: var(--t3);
+        margin-top: -6px;
+        margin-bottom: 16px;
+        font-style: italic;
+      }
+
+      /* Feature grid (3 cards) */
+      .feat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 20px 0 24px;
+      }
+      .feat-card {
+        background: var(--card);
+        border-radius: var(--r);
+        padding: 20px 18px;
+        text-align: center;
+        border: 0.7px solid var(--border);
+      }
+      .feat-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--elevated);
+        color: var(--t1);
+        font-family: var(--serif);
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .feat-title {
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--t1);
+        margin-bottom: 6px;
+        letter-spacing: -0.2px;
+      }
+      .feat-body {
+        font-size: 13.5px;
+        color: var(--t3);
+        line-height: 1.6;
+      }
+      @media (max-width: 768px) {
+        .feat-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Dynamics 2x2 boxes */
+      .dyn-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 20px 0 16px;
+      }
+      .dyn-box {
+        background: var(--card);
+        border: 0.7px solid var(--border);
+        border-radius: var(--r);
+        padding: 16px 18px;
+      }
+      .dyn-box h4 {
+        font-family: var(--serif);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--t1);
+        margin: 0 0 6px;
+        letter-spacing: -0.1px;
+      }
+      .dyn-box p,
+      .dyn-box ul {
+        font-size: 13.5px;
+        color: var(--t2);
+        line-height: 1.65;
+      }
+      .dyn-box ul {
+        margin: 6px 0 0 18px;
+      }
+      .dyn-box li {
+        margin-bottom: 3px;
+      }
+      .dyn-box.full {
+        grid-column: 1 / -1;
+        background: var(--elevated);
+      }
+      @media (max-width: 768px) {
+        .dyn-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Figure box */
+      .fig-box {
+        margin: 24px 0;
+        border-radius: var(--r);
+        overflow: hidden;
+        border: 0.7px solid var(--border);
+        background: var(--bg);
+      }
+      .fig-box img {
+        width: 100%;
+        display: block;
+      }
+      .fig-cap {
+        padding: 10px 18px 14px;
+        font-size: 12.5px;
+        color: var(--t3);
+        line-height: 1.5;
+      }
+      .fig-cap strong {
+        color: var(--t2);
+      }
+
+      /* Video embed */
+      .video-embed {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        margin: 16px 0 24px;
+        border-radius: var(--r);
+        overflow: hidden;
+        border: 0.7px solid var(--border);
+      }
+      .video-embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* References grid */
+      .ref-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 16px 0 20px;
+      }
+      .ref-card {
+        background: var(--card);
+        border: 0.7px solid var(--border);
+        border-radius: var(--r);
+        padding: 14px 16px;
+      }
+      .ref-meta {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--link);
+        margin-bottom: 6px;
+      }
+      .ref-title {
+        font-family: var(--serif);
+        font-size: 14.5px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-bottom: 6px;
+      }
+      .ref-title a {
+        color: var(--t1);
+      }
+      .ref-title a:hover {
+        color: var(--link);
+      }
+      .ref-authors {
+        font-size: 12.5px;
+        color: var(--t3);
+      }
+      @media (max-width: 768px) {
+        .ref-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* BibTeX */
+      .bibtex-block {
+        background: var(--card);
+        border: 0.7px solid var(--border);
+        border-radius: var(--r);
+        padding: 18px 22px;
+        margin: 16px 0 20px;
+        overflow-x: auto;
+      }
+      .bibtex-block pre {
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.7;
+        color: var(--t1);
+        margin: 0;
+        white-space: pre;
+      }
+
+      /* Footer */
+      .footer {
+        border-top: 0.7px solid var(--border);
+        padding: 28px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--t4);
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+      .footer-links a {
+        color: var(--t2);
+        font-weight: 500;
+      }
+
+      /* Responsive */
+      @media (max-width: 1100px) {
+        .toc {
+          display: none;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero-wrap {
+          padding: 0 16px;
+        }
+        .layout {
+          padding: 0 16px 56px;
+        }
+        .nav {
+          padding: 0 16px;
+        }
+        .nav-link {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 34px;
+        }
+        .hero {
+          padding: 48px 0 28px;
+        }
+        .article h2 {
+          font-size: 22px;
+          margin: 40px 0 12px;
+          padding-top: 16px;
+        }
+        .article h3 {
+          font-size: 16px;
+          margin: 24px 0 8px;
+        }
+        .article {
+          font-size: 14.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <a href="#top" class="nav-logo">
+        <span class="brain">C</span>
+        <span>CTM-AI</span>
+      </a>
+      <div class="nav-r">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#dynamics" class="nav-link">Dynamics</a>
+        <a href="#references" class="nav-link">References</a>
+        <a href="#citation" class="nav-link">Citation</a>
+        <a href="https://github.com/consciousness-lab/ctm-ai" class="gh-pill" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          GitHub
         </a>
       </div>
+    </nav>
 
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item is-active" href="index.html">
-            Blogs
+    <!-- HERO -->
+    <div class="hero-wrap" id="top">
+      <header class="hero">
+        <h1>CTM-AI</h1>
+        <p class="hero-sub">A Blueprint for General AI Inspired by a Model of Consciousness</p>
+        <p class="hero-date">February 22, 2026</p>
+
+        <div class="hero-authors">
+          <div class="author-row">
+            <a href="https://haofeiyu.me" target="_blank" rel="noopener" class="author-name author-core">Haofei Yu</a><sup>*</sup><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Yining Zhao</span><sup>*</sup><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Lenore Blum</span><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Manuel Blum</span><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Paul Pu Liang</span>
+          </div>
+          <div class="author-affil">UIUC &nbsp;·&nbsp; CMU &nbsp;·&nbsp; UC Berkeley &nbsp;·&nbsp; MIT</div>
+          <div class="author-equal"><sup>*</sup>Equal contribution</div>
+          <div class="author-contact">
+            <a href="mailto:haofeiy2@illinois.edu">haofeiy2@illinois.edu</a>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <span class="btn btn-disabled" title="To Be Announced">PDF (TBA)</span>
+          <a href="https://github.com/consciousness-lab/ctm-ai" class="btn btn-dark" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+            GitHub
           </a>
+          <a href="#citation" class="btn btn-ghost">Cite</a>
         </div>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-            </div>
-          </div>
+        <div class="feat-pills">
+          <span class="feat-pill">Global workspace</span>
+          <span class="feat-pill">Up-tree / Down-tree</span>
+          <span class="feat-pill">Processor links</span>
+          <span class="feat-pill">Many processors</span>
+          <span class="feat-pill">Multimodal + tools</span>
         </div>
-      </div>
-    </div>
-  </nav>
+      </header>
 
-  <section class="hero is-light">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">ctm-ai Blog</h1>
-            <h2 class="subtitle is-3 publication-subtitle">Latest Updates & Insights</h2>
-          </div>
+      <!-- TL;DR -->
+      <div class="tldr">
+        <div class="tldr-body">
+          <strong>TL;DR</strong> &mdash; CTM-AI operationalizes the Conscious Turing Machine (CTM) into a practical system: many parallel processors, a limited-capacity workspace, global broadcast, and learned links for multimodal integration.
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Blog Entries -->
-      <div class="columns is-centered">
-        <div class="column is-8">
-          
-          <!-- Blog Post Container -->
-          <div id="blog-posts-container">
-            <!-- Posts will be loaded dynamically via JS -->
-            <div class="has-text-centered">
-               <span class="icon is-large"><i class="fas fa-spinner fa-pulse"></i></span>
-               <p>Loading posts...</p>
-            </div>
-          </div>
+    <!-- 2-COL: STICKY TOC + ARTICLE -->
+    <div class="layout">
+      <!-- LEFT STICKY TOC -->
+      <aside class="toc" id="toc">
+        <div class="toc-label">On this page</div>
+        <a href="#overview" data-section="overview">Overview</a>
+        <a href="#demos" data-section="demos">System Demos</a>
+        <a href="#what-is" data-section="what-is">What is CTM-AI?</a>
+        <a href="#architecture" data-section="architecture">Architecture</a>
+        <a href="#dynamics" data-section="dynamics">Core Dynamics</a>
+        <a href="#references" data-section="references">References</a>
+        <a href="#citation" data-section="citation">Citation</a>
+        <a href="#acknowledgements" data-section="acknowledgements">Acknowledgements</a>
+      </aside>
 
-          <!-- Placeholder for more posts -->
-
+      <!-- ARTICLE -->
+      <article class="article">
+        <h2 id="overview">Overview</h2>
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/SKwnKFt2uGk"
+            title="CTM-AI Overview Introduction"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
         <p>
-          This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          CTM-AI operationalizes the Conscious Turing Machine (CTM) into a practical system: many parallel processors, a limited-capacity workspace, global broadcast, and learned links for multimodal integration.
         </p>
-      </div>
-    </div>
-  </footer>
 
-</body>
+        <h2 id="demos">System Demos</h2>
+
+        <h3>Minimal Case Demo</h3>
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/lRWz5MAydKY"
+            title="CTM-AI Minimal Case Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Sarcasm Case Demo</h3>
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/yTyKRghOq8o"
+            title="CTM-AI Sarcasm Case Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h2 id="what-is">What is CTM-AI?</h2>
+        <p class="section-sub">A concrete blueprint that translates CTM theory into a modular, testable AI system.</p>
+        <p>
+          CTM-AI implements a <strong>global-workspace</strong> architecture inspired by the formal <em>Conscious Turing Machine</em>. Instead of relying on a single monolithic model or a fixed multi-agent script, CTM-AI uses a <strong>large collection of processors</strong> (LLMs/VLMs/tools/memory modules) that compete to contribute information; the winning &ldquo;chunk&rdquo; enters a small workspace and is broadcast back to all processors, while <strong>links</strong> form over time to enable fast unconscious information sharing.
+        </p>
+
+        <div class="feat-grid">
+          <div class="feat-card">
+            <div class="feat-icon">P</div>
+            <div class="feat-title">Many Processors</div>
+            <div class="feat-body">
+              A set of specialized and unspecialized modules (sensory, cognitive, tool, motor, memory) that run in parallel and produce candidate &ldquo;chunks&rdquo;.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">A</div>
+            <div class="feat-title">Selective Attention</div>
+            <div class="feat-body">
+              A limited-capacity <strong>short-term workspace</strong> admits only one winning chunk via up-tree competition, enforcing attention and preventing overload.
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">L</div>
+            <div class="feat-title">Learned Links</div>
+            <div class="feat-body">
+              Processors form and break links based on usefulness, enabling multimodal fusion and &ldquo;unconscious&rdquo; communication without a central executive.
+            </div>
+          </div>
+        </div>
+
+        <h2 id="architecture">System Architecture</h2>
+        <p>
+          CTM-AI follows the CTM 7-tuple: <code>&lt;STM, LTM, Up-Tree, Down-Tree, Links, Input, Output&gt;</code>. In practice:
+        </p>
+        <ul>
+          <li><strong>LTM processors:</strong> modules with private state and an <code>execute / read / write</code> interface that output <em>chunks</em> (gist, follow-up question, confidence weight).</li>
+          <li><strong>STM workspace:</strong> a stateless &ldquo;supervisor&rdquo; LLM that consumes the winning chunk + user query to produce the final action/answer and a confidence score.</li>
+          <li><strong>Up-tree / Down-tree:</strong> selection into STM and global broadcast back to all LTMs.</li>
+          <li><strong>Links:</strong> dynamic edges between processors to support iterative, cross-processor fusion.</li>
+        </ul>
+        <p>
+          This structure generalizes single-model reasoning (when only one processor is active) and supports multimodal + tool-using behavior through the same competition-and-broadcast loop.
+        </p>
+
+        <h2 id="dynamics">Core Dynamics</h2>
+        <p class="section-sub">Collect &rarr; Compete &rarr; Broadcast &rarr; Link &amp; Fuse &rarr; Feedback</p>
+
+        <div id="fig-method" class="fig-box">
+          <img src="../static/images/ctm_main.png" alt="CTM-AI method diagram" />
+          <div class="fig-cap">
+            <strong>Figure 1.</strong> CTM-AI method overview: parallel processors emit chunks; a single winner is selected into the workspace and broadcast back.
+          </div>
+        </div>
+
+        <div class="dyn-grid">
+          <div class="dyn-box">
+            <h4>1) Chunk Collection (Parallel)</h4>
+            <p>All processors observe the query (and their modality/tool context) and output a <strong>chunk</strong>:</p>
+            <ul>
+              <li><strong>gist</strong>: a short English summary useful for the query</li>
+              <li><strong>additional_question</strong>: what information to ask other processors for</li>
+              <li><strong>weight</strong>: relevance/confidence-based score for competition</li>
+            </ul>
+          </div>
+
+          <div class="dyn-box">
+            <h4>2) Up-tree Competition (Selection)</h4>
+            <p>A single chunk is selected into the workspace (STM). In the implementation, selection can be simplified to a global argmax over weights when few processors are active.</p>
+          </div>
+
+          <div class="dyn-box">
+            <h4>3) Down-tree Broadcast (Attention)</h4>
+            <p>The winning chunk is broadcast to all processors and written into their private memories, aligning context for the next iteration.</p>
+          </div>
+
+          <div class="dyn-box">
+            <h4>4) Link Formation &amp; Fusion</h4>
+            <p>Links form when another processor answers the winner&rsquo;s follow-up question with high relevance; linked processors exchange answers to enrich each other&rsquo;s memory for deeper multimodal/tool reasoning.</p>
+          </div>
+
+          <div class="dyn-box full">
+            <h4>Efficiency (per iteration)</h4>
+            <p>If there are <code>K</code> processors and <code>L</code> links, one iteration performs about <code>2(K + L)</code> processor calls. Most stages are parallelizable; time is dominated by API/model calls (roughly &ldquo;3 calls worth&rdquo; per iteration), with 1&ndash;3 iterations typical.</p>
+          </div>
+        </div>
+
+        <h3>Case Study Snapshot</h3>
+        <p>
+          In a sarcasm example, text/video/audio processors iteratively ask each other for missing context (dialogue, facial expression, tone), links form between relevant processors, and the winning evidence changes across iterations until the system converges.
+        </p>
+        <div id="fig-case" class="fig-box">
+          <img src="../static/images/ctm_case_study.png" alt="CTM-AI case study diagram" />
+          <div class="fig-cap">
+            <strong>Figure 2.</strong> Case study: iterative cross-modal fusion as text, video, and audio processors form links to resolve a sarcasm query.
+          </div>
+        </div>
+
+        <h2 id="references">Foundational CTM References</h2>
+        <p class="section-sub">Key papers on the Conscious Turing Machine and its implications for AI consciousness.</p>
+
+        <div class="ref-grid">
+          <div class="ref-card">
+            <div class="ref-meta">2021 &middot; JAIC 8(1)</div>
+            <div class="ref-title">
+              <a href="https://www.worldscientific.com/doi/epdf/10.1142/S2705078521500028" target="_blank" rel="noopener">A Theoretical Computer Science Perspective on Consciousness</a>
+            </div>
+            <div class="ref-authors">Blum, M., &amp; Blum, L.</div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-meta">2022 &middot; PNAS 119(21)</div>
+            <div class="ref-title">
+              <a href="https://www.pnas.org/doi/epdf/10.1073/pnas.2115934119" target="_blank" rel="noopener">A theory of consciousness from a theoretical computer science perspective: Insights from the Conscious Turing Machine</a>
+            </div>
+            <div class="ref-authors">Blum, L., &amp; Blum, M.</div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-meta">2023 &middot; Engineering 25</div>
+            <div class="ref-title">
+              <a href="https://doi.org/10.1016/j.eng.2023.03.010" target="_blank" rel="noopener">A Theoretical Computer Science Perspective on Consciousness and Artificial General Intelligence</a>
+            </div>
+            <div class="ref-authors">Blum, L., &amp; Blum, M.</div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-meta">2024 &middot; arXiv</div>
+            <div class="ref-title">
+              <a href="https://arxiv.org/abs/2403.17101" target="_blank" rel="noopener">AI Consciousness is Inevitable: A Theoretical Computer Science Perspective</a>
+            </div>
+            <div class="ref-authors">Blum, L., &amp; Blum, M.</div>
+          </div>
+        </div>
+
+        <h2 id="citation">Citation</h2>
+        <div class="bibtex-block">
+          <pre>@misc{ctmai2026,
+  title        = {CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness},
+  author       = {Haofei Yu and Yining Zhao and Lenore Blum and Manuel Blum and Paul Pu Liang},
+  year         = {2026},
+  note         = {Preprint}
+}</pre>
+        </div>
+
+        <h2 id="acknowledgements">Acknowledgements</h2>
+        <p>
+          This work was done in part while Lenore Blum, Manuel Blum, and Paul Liang were visiting the Simons Institute for the Theory of Computing. We are grateful to our friend Michael Xuan for his enormous personal support and encouragement. We thank UniDT for their supporting grant of our work. We also acknowledge Nvidia&rsquo;s GPU support.
+        </p>
+      </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://github.com/consciousness-lab/ctm-ai" target="_blank" rel="noopener">GitHub</a>
+        <a href="#citation">Cite</a>
+      </div>
+      &copy; 2026 CTM-AI
+    </footer>
+
+    <!-- TOC scroll spy -->
+    <script>
+      (function () {
+        const toc = document.getElementById("toc");
+        const links = [...toc.querySelectorAll("a[data-section]")];
+        const ids = links.map((a) => a.dataset.section);
+
+        function update() {
+          let active = ids[0];
+          for (const id of ids) {
+            const el = document.getElementById(id);
+            if (el && el.getBoundingClientRect().top <= 100) active = id;
+          }
+          links.forEach((a) => {
+            a.classList.toggle("active", a.dataset.section === active);
+          });
+        }
+
+        const obs = new IntersectionObserver(
+          () => {
+            toc.classList.add("visible");
+            obs.disconnect();
+          },
+          { rootMargin: "-40% 0px -40% 0px" },
+        );
+        const first = document.getElementById(ids[0]);
+        if (first) obs.observe(first);
+
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+      })();
+    </script>
+  </body>
 </html>
