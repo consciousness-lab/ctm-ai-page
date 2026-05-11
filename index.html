@@ -23,23 +23,23 @@
         --toc-w: 180px;
       }
       [data-theme="light"] {
-        --bg: #f3f6fb;
-        --card: #e8edf6;
-        --elevated: #dde4f0;
-        --deep: #d2daea;
-        --code-bg: #1a1e24;
-        --border: #bec8d8;
-        --line: #aab4c6;
-        --t1: #18222e;
-        --t2: #26323f;
-        --t3: #415060;
-        --t4: #647585;
-        --t5: #8e9eae;
-        --code-t: #ced4dc;
-        --badge-bg: #18222e;
-        --badge-t: #f3f6fb;
-        --link: #2a5282;
-        --link-h: #18222e;
+        --bg: #fbfaf7;
+        --card: #f2f0ea;
+        --elevated: #e8e5dc;
+        --deep: #d8d4c8;
+        --code-bg: #1a1814;
+        --border: #d0ccc0;
+        --line: #b4afa3;
+        --t1: #1f1c17;
+        --t2: #2e2b26;
+        --t3: #4a463f;
+        --t4: #6e6a63;
+        --t5: #948f87;
+        --code-t: #d4d1c8;
+        --badge-bg: #1f1c17;
+        --badge-t: #fbfaf7;
+        --link: #7a5c3e;
+        --link-h: #1f1c17;
       }
 
       *,
@@ -97,17 +97,6 @@
         gap: 8px;
         letter-spacing: 0.02em;
       }
-      .nav-logo .brain {
-        display: inline-flex;
-        width: 22px;
-        height: 22px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 6px;
-        background: var(--badge-bg);
-        color: var(--badge-t);
-        font-size: 12px;
-      }
       .nav-r {
         display: flex;
         align-items: center;
@@ -132,7 +121,7 @@
         padding: 5px 12px;
         border-radius: var(--r-pill);
         background: var(--badge-bg);
-        color: #f3f6fb;
+        color: var(--badge-t);
         font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.02em;
@@ -142,11 +131,11 @@
       .gh-pill,
       .gh-pill:visited,
       .gh-pill:link {
-        color: #f3f6fb;
+        color: var(--badge-t);
       }
       .gh-pill:hover {
         opacity: 0.85;
-        color: #f3f6fb;
+        color: var(--badge-t);
       }
       .gh-pill svg {
         flex-shrink: 0;
@@ -164,21 +153,14 @@
       }
       .hero h1 {
         font-family: var(--serif);
-        font-size: clamp(40px, 6vw, 64px);
+        font-size: clamp(28px, 3.6vw, 44px);
         font-weight: 700;
         color: var(--t1);
-        letter-spacing: -0.04em;
-        line-height: 1.05;
-        margin-bottom: 14px;
-      }
-      .hero-sub {
-        font-family: var(--serif);
-        font-size: clamp(18px, 2.4vw, 24px);
-        color: var(--t3);
-        max-width: 720px;
-        margin: 0 auto 22px;
-        line-height: 1.35;
-        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 1.18;
+        max-width: 780px;
+        margin: 0 auto 18px;
+        text-wrap: balance;
       }
       .hero-date {
         font-size: 12.5px;
@@ -272,28 +254,6 @@
       }
       .btn-disabled:hover {
         opacity: 1;
-      }
-
-      /* Feature pills (hero) */
-      .feat-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        justify-content: center;
-        margin-top: 22px;
-      }
-      .feat-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 12px;
-        border-radius: var(--r-pill);
-        background: var(--card);
-        border: 0.7px solid var(--border);
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--t2);
-        letter-spacing: 0.01em;
       }
 
       /* TLDR */
@@ -454,42 +414,43 @@
       .feat-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin: 20px 0 24px;
+        gap: 14px;
+        margin: 22px 0 28px;
       }
       .feat-card {
         background: var(--card);
         border-radius: var(--r);
-        padding: 20px 18px;
-        text-align: center;
+        padding: 22px 20px;
         border: 0.7px solid var(--border);
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease;
       }
-      .feat-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--elevated);
-        color: var(--t1);
-        font-family: var(--serif);
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 12px;
+      .feat-card:hover {
+        transform: translateY(-1px);
+        border-color: var(--line);
+      }
+      .feat-num {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: var(--t4);
+        margin-bottom: 14px;
+        display: block;
       }
       .feat-title {
         font-family: var(--serif);
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 600;
         color: var(--t1);
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         letter-spacing: -0.2px;
       }
       .feat-body {
         font-size: 13.5px;
         color: var(--t3);
-        line-height: 1.6;
+        line-height: 1.65;
       }
       @media (max-width: 768px) {
         .feat-grid {
@@ -593,6 +554,13 @@
         border: 0.7px solid var(--border);
         border-radius: var(--r);
         padding: 14px 16px;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .ref-card:hover {
+        transform: translateY(-1px);
+        border-color: var(--line);
       }
       .ref-meta {
         font-family: var(--mono);
@@ -707,7 +675,6 @@
     <!-- NAV -->
     <nav class="nav">
       <a href="#top" class="nav-logo">
-        <span class="brain">C</span>
         <span>CTM-AI</span>
       </a>
       <div class="nav-r">
@@ -728,42 +695,32 @@
     <!-- HERO -->
     <div class="hero-wrap" id="top">
       <header class="hero">
-        <h1>CTM-AI</h1>
-        <p class="hero-sub">A Blueprint for General AI Inspired by a Model of Consciousness</p>
+        <h1>CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness</h1>
         <p class="hero-date">February 22, 2026</p>
 
         <div class="hero-authors">
           <div class="author-row">
-            <a href="https://haofeiyu.me" target="_blank" rel="noopener" class="author-name author-core">Haofei Yu</a><sup>*</sup><span class="author-sep">&nbsp;&nbsp;</span>
-            <span class="author-name author-core">Yining Zhao</span><sup>*</sup><span class="author-sep">&nbsp;&nbsp;</span>
-            <span class="author-name author-core">Lenore Blum</span><span class="author-sep">&nbsp;&nbsp;</span>
-            <span class="author-name author-core">Manuel Blum</span><span class="author-sep">&nbsp;&nbsp;</span>
-            <span class="author-name author-core">Paul Pu Liang</span>
+            <a href="https://haofeiyu.me" target="_blank" rel="noopener" class="author-name author-core">Haofei Yu</a><sup>1†</sup><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Yining Zhao</span><sup>1†</sup><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Lenore Blum</span><sup>2</sup><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Manuel Blum</span><sup>2</sup><span class="author-sep">&nbsp;&nbsp;</span>
+            <span class="author-name author-core">Paul Pu Liang</span><sup>3</sup>
           </div>
-          <div class="author-affil">UIUC &nbsp;·&nbsp; CMU &nbsp;·&nbsp; UC Berkeley &nbsp;·&nbsp; MIT</div>
-          <div class="author-equal"><sup>*</sup>Equal contribution</div>
+          <div class="author-affil"><sup>1</sup>UIUC &nbsp;·&nbsp; <sup>2</sup>CMU &nbsp;·&nbsp; <sup>3</sup>MIT</div>
+          <div class="author-equal"><sup>†</sup>Equal contribution</div>
           <div class="author-contact">
             <a href="mailto:haofeiy2@illinois.edu">haofeiy2@illinois.edu</a>
           </div>
         </div>
 
         <div class="hero-btns">
-          <span class="btn btn-disabled" title="To Be Announced">PDF (TBA)</span>
-          <a href="https://github.com/consciousness-lab/ctm-ai" class="btn btn-dark" target="_blank" rel="noopener">
+          <a href="https://arxiv.org/abs/2605.04097" class="btn btn-dark" target="_blank" rel="noopener">arXiv</a>
+          <a href="https://github.com/consciousness-lab/ctm-ai" class="btn btn-ghost" target="_blank" rel="noopener">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
             </svg>
             GitHub
           </a>
-          <a href="#citation" class="btn btn-ghost">Cite</a>
-        </div>
-
-        <div class="feat-pills">
-          <span class="feat-pill">Global workspace</span>
-          <span class="feat-pill">Up-tree / Down-tree</span>
-          <span class="feat-pill">Processor links</span>
-          <span class="feat-pill">Many processors</span>
-          <span class="feat-pill">Multimodal + tools</span>
         </div>
       </header>
 
@@ -835,21 +792,21 @@
 
         <div class="feat-grid">
           <div class="feat-card">
-            <div class="feat-icon">P</div>
+            <span class="feat-num">01</span>
             <div class="feat-title">Many Processors</div>
             <div class="feat-body">
               A set of specialized and unspecialized modules (sensory, cognitive, tool, motor, memory) that run in parallel and produce candidate &ldquo;chunks&rdquo;.
             </div>
           </div>
           <div class="feat-card">
-            <div class="feat-icon">A</div>
+            <span class="feat-num">02</span>
             <div class="feat-title">Selective Attention</div>
             <div class="feat-body">
               A limited-capacity <strong>short-term workspace</strong> admits only one winning chunk via up-tree competition, enforcing attention and preventing overload.
             </div>
           </div>
           <div class="feat-card">
-            <div class="feat-icon">L</div>
+            <span class="feat-num">03</span>
             <div class="feat-title">Learned Links</div>
             <div class="feat-body">
               Processors form and break links based on usefulness, enabling multimodal fusion and &ldquo;unconscious&rdquo; communication without a central executive.
@@ -875,7 +832,7 @@
         <p class="section-sub">Collect &rarr; Compete &rarr; Broadcast &rarr; Link &amp; Fuse &rarr; Feedback</p>
 
         <div id="fig-method" class="fig-box">
-          <img src="../static/images/ctm_main.png" alt="CTM-AI method diagram" />
+          <img src="/static/images/ctm_main.png" alt="CTM-AI method diagram" />
           <div class="fig-cap">
             <strong>Figure 1.</strong> CTM-AI method overview: parallel processors emit chunks; a single winner is selected into the workspace and broadcast back.
           </div>
@@ -918,7 +875,7 @@
           In a sarcasm example, text/video/audio processors iteratively ask each other for missing context (dialogue, facial expression, tone), links form between relevant processors, and the winning evidence changes across iterations until the system converges.
         </p>
         <div id="fig-case" class="fig-box">
-          <img src="../static/images/ctm_case_study.png" alt="CTM-AI case study diagram" />
+          <img src="/static/images/ctm_case_study.png" alt="CTM-AI case study diagram" />
           <div class="fig-cap">
             <strong>Figure 2.</strong> Case study: iterative cross-modal fusion as text, video, and audio processors form links to resolve a sarcasm query.
           </div>
@@ -964,10 +921,13 @@
         <h2 id="citation">Citation</h2>
         <div class="bibtex-block">
           <pre>@misc{ctmai2026,
-  title        = {CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness},
-  author       = {Haofei Yu and Yining Zhao and Lenore Blum and Manuel Blum and Paul Pu Liang},
-  year         = {2026},
-  note         = {Preprint}
+  title         = {CTM-AI: A Blueprint for General AI Inspired by a Model of Consciousness},
+  author        = {Haofei Yu and Yining Zhao and Lenore Blum and Manuel Blum and Paul Pu Liang},
+  year          = {2026},
+  eprint        = {2605.04097},
+  archivePrefix = {arXiv},
+  primaryClass  = {q-bio.NC},
+  url           = {https://arxiv.org/abs/2605.04097}
 }</pre>
         </div>
 
